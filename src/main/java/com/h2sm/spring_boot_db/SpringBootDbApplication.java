@@ -13,10 +13,8 @@ public class SpringBootDbApplication {
         // TODO: 11.10.2021 1) shell команды
         // TODO: 11.10.2021 2) jdbc-template для postgres
         // TODO: 11.10.2021 3) интернационализация
-        //SpringApplication.run(SpringConfig.class, args);
-        var x = new AnnotationConfigApplicationContext(SpringConfig.class);
-        var b = x.getBean("auth", DockerAuth.class);
-        System.out.println(b.getLogin());
+        SpringApplication.run(SpringConfig.class, args);
+
     }
 
 }
