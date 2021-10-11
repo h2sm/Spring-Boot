@@ -13,7 +13,7 @@ public class SpringBootDbApplication {
         // TODO: 11.10.2021 1) shell команды
         // TODO: 11.10.2021 2) jdbc-template для postgres
         // TODO: 11.10.2021 3) интернационализация
-        SpringApplication.run(SpringConfig.class, args);
+        SpringApplication.run(SpringBootDbApplication.class, args);
 
     }
 
