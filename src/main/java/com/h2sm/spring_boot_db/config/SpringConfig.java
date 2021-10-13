@@ -1,14 +1,13 @@
 package com.h2sm.spring_boot_db.config;
 
 import com.h2sm.spring_boot_db.io.UI;
-import com.h2sm.spring_boot_db.io.UIimpl;
-import com.h2sm.spring_boot_db.repository.AchievementsRepo;
+import com.h2sm.spring_boot_db.io.UserInterfaceImpl;
+import com.h2sm.spring_boot_db.repository.StudentsRepoImpl;
+import com.h2sm.spring_boot_db.repository.interfaces.AchievementsRepo;
 import com.h2sm.spring_boot_db.repository.AchievementsRepoImpl;
-import com.h2sm.spring_boot_db.repository.TablesRepo;
+import com.h2sm.spring_boot_db.repository.interfaces.StudentsRepo;
+import com.h2sm.spring_boot_db.repository.interfaces.TablesRepo;
 import com.h2sm.spring_boot_db.repository.TablesRepoImpl;
-import com.h2sm.spring_boot_db.services.DBService;
-import com.h2sm.spring_boot_db.shell.Commands;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -38,7 +37,7 @@ public class SpringConfig {
 
     @Bean
     public UI userInterface() {
-        return new UIimpl();
+        return new UserInterfaceImpl();
     }
 
     @Bean
@@ -46,22 +45,18 @@ public class SpringConfig {
         return new NamedParameterJdbcTemplate(postgresDataSource());
     }
 
-    @Bean
-    public AchievementsRepo achievements() {
-        return new AchievementsRepoImpl(jdbcOperations());
-    }
-    @Bean
-    public TablesRepo tables() {
-        return new TablesRepoImpl(jdbcOperations());
-    }
-
-    @Bean
-    public DBService db() {
-        return new DBService(achievements(), tables());
-    }
-
 //    @Bean
-//    public Commands cmd(){
-//        return new Commands(db(),userInterface());
+//    public AchievementsRepo achievements() {
+//        return new AchievementsRepoImpl(jdbcOperations());
+//    }
+//
+//    @Bean
+//    public TablesRepo tables() {
+//        return new TablesRepoImpl(jdbcOperations());
+//    }
+//
+//    @Bean
+//    public StudentsRepo student() {
+//        return new StudentsRepoImpl(jdbcOperations());
 //    }
 }

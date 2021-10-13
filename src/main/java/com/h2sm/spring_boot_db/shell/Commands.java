@@ -23,6 +23,11 @@ public class Commands {
         var col = service.getAchievements();
         print(col);
     }
+    @ShellMethod(value = "find-Students", key = "students")
+    public void findStudents(){
+        var col = service.getAllStudents();
+        print(col);
+    }
 
     @ShellMethod(value = "find-all-Tables", key ="all")
     public void findAllTables() {

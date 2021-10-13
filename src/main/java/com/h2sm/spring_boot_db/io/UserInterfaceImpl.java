@@ -1,13 +1,10 @@
 package com.h2sm.spring_boot_db.io;
 
-import com.h2sm.spring_boot_db.models.Achievement;
-import org.springframework.stereotype.Service;
-
 import java.io.PrintWriter;
 import java.util.Collection;
 import java.util.Scanner;
 
-public class UIimpl implements UI {
+public class UserInterfaceImpl implements UI {
     private final Scanner scanner = new Scanner(System.in);
     private final PrintWriter writer = new PrintWriter(System.out);
 
@@ -20,7 +17,8 @@ public class UIimpl implements UI {
 
     @Override
     public void show(Collection<?> t) {
-        t.forEach((k) -> System.out.println(k.toString()));
+        t.forEach(System.out::println);
+        //t.forEach((k) -> System.out.println(k.toString()));
     }
 
     @Override

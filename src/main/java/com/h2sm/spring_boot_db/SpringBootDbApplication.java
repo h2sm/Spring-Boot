@@ -10,8 +10,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class SpringBootDbApplication {
 
     public static void main(String[] args) {
-        // TODO: 11.10.2021 1) shell команды
-        // TODO: 11.10.2021 2) jdbc-template для postgres
         // TODO: 11.10.2021 3) интернационализация
         SpringApplication.run(SpringBootDbApplication.class, args);
 

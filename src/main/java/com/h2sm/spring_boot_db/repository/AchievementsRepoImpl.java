@@ -1,6 +1,7 @@
 package com.h2sm.spring_boot_db.repository;
 
 import com.h2sm.spring_boot_db.models.Achievement;
+import com.h2sm.spring_boot_db.repository.interfaces.AchievementsRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Repository;
