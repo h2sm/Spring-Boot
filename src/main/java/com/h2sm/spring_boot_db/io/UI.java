@@ -7,6 +7,6 @@ import java.util.Collection;
 
 public interface UI {
     void show(String str);
-    void show(Collection<Object> t);
+    void show(Collection<?> t);
     void showLocalized(String str);
 }

@@ -19,7 +19,7 @@ public class UIimpl implements UI {
     }
 
     @Override
-    public void show(Collection<Object> t) {
+    public void show(Collection<?> t) {
         t.forEach((k) -> System.out.println(k.toString()));
     }
 

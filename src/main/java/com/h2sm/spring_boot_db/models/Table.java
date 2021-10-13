@@ -10,6 +10,6 @@ public class Table {
     private String tableName;
     @Override
     public String toString(){
-        return "Table : " + tableName + " with number " + tableName;
+        return "Table " +"'"+ tableName + "'" + " with number " + tableNumber;
     }
 }
