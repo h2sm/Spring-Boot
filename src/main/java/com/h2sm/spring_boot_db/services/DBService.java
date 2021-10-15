@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @RequiredArgsConstructor
-@Service
+@Service("dbserv")
 public class DBService {
     private final AchievementsRepo achievements;
     private final TablesRepo tables;

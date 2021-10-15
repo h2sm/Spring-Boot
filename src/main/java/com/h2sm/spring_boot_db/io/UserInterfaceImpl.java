@@ -18,7 +18,6 @@ public class UserInterfaceImpl implements UI {
     @Override
     public void show(Collection<?> t) {
         t.forEach(System.out::println);
-        //t.forEach((k) -> System.out.println(k.toString()));
     }
 
     @Override

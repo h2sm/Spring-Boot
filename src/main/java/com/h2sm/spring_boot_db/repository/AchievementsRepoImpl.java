@@ -3,13 +3,16 @@ package com.h2sm.spring_boot_db.repository;
 import com.h2sm.spring_boot_db.models.Achievement;
 import com.h2sm.spring_boot_db.repository.interfaces.AchievementsRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
+@Component
 public class AchievementsRepoImpl implements AchievementsRepo {
     private final NamedParameterJdbcOperations jdbc;
 

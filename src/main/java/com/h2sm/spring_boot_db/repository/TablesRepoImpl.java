@@ -4,6 +4,7 @@ import com.h2sm.spring_boot_db.models.Table;
 import com.h2sm.spring_boot_db.repository.interfaces.TablesRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
@@ -11,6 +12,7 @@ import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
+@Component
 public class TablesRepoImpl implements TablesRepo {
     private final NamedParameterJdbcOperations jdbc;
 
