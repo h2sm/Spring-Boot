@@ -1,18 +1,16 @@
 package com.h2sm.spring_boot_db.services;
-import com.h2sm.spring_boot_db.SpringBootDbApplication;
 import com.h2sm.spring_boot_db.config.SpringConfig;
+import com.h2sm.spring_boot_db.repository.AchievementsRepoImpl;
 import com.h2sm.spring_boot_db.repository.interfaces.AchievementsRepo;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.TestComponent;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.stream.Collectors;
 
 @SpringBootTest(classes = SpringConfig.class)
 @RunWith(SpringRunner.class)
@@ -21,16 +19,16 @@ class DBServiceTest {
     TestData data = new TestData();
 
     @MockBean
-    AchievementsRepo achievements;
+    AchievementsRepoImpl achievements;
 
     @Test
     void getAllTables() {
+        Assertions.assertThat(data.)
     }
 
     @Test
     void getAchievements() {
-        achievements.returnAllAchievements().forEach(System.out::println);
-        Assertions.assertThat(data.returnAchievements()).containsExactlyElementsOf(achievements.returnAllAchievements().stream().toList());
+        Assertions.assertThat(data.returnAchievements()).containsAll(achievements.returnAllAchievements());
     }
 
     @Test
