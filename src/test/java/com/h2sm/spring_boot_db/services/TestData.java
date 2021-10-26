@@ -1,8 +1,5 @@
 package com.h2sm.spring_boot_db.services;
 
-import com.h2sm.spring_boot_db.models.Achievement;
-import com.h2sm.spring_boot_db.models.Student;
-import lombok.Getter;
 import org.springframework.boot.test.context.TestComponent;
 
 import java.util.Collection;
@@ -18,6 +15,11 @@ public class TestData {
     public Collection<Achievement> returnAchievements() {
         return achievementList;
     }
-    private final Student s1 = new Student()
+    private final Student s1 = new Student(0,"vasyan", "vasyan@google.com", 0,false);
+    private final Student s2 = new Student(2,"Cool Guy", "not_vasyan@google.com", 0,false);
+    public final Collection<Student> studentList = List.of(s1,s2);
+    public Collection<Student> returnStudents(){
+        return studentList;
+    }
 
 }

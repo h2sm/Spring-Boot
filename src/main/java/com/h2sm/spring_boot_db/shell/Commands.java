@@ -5,6 +5,7 @@ import com.h2sm.spring_boot_db.services.DBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
+
 import java.util.Collection;
 
 @ShellComponent
@@ -18,20 +19,9 @@ public class Commands {
         System.exit(0);
     }
 
-    @ShellMethod(value = "find-Achievement", key = {"find", "achievement"})
-    public void findAchievement() {
-        var col = service.getAchievements();
-        print(col);
-    }
-    @ShellMethod(value = "find-Students", key = "students")
-    public void findStudents(){
-        var col = service.getAllStudents();
-        print(col);
-    }
-
-    @ShellMethod(value = "find-all-Tables", key ="all")
-    public void findAllTables() {
-        var col = service.getAllTables();
+    @ShellMethod(value = "find-client", key = {"find", "client"})
+    public void findClients() {
+        var col = service.getAllClients();
         print(col);
     }
 

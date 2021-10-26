@@ -2,12 +2,6 @@ package com.h2sm.spring_boot_db.config;
 
 import com.h2sm.spring_boot_db.io.UI;
 import com.h2sm.spring_boot_db.io.UserInterfaceImpl;
-import com.h2sm.spring_boot_db.repository.StudentsRepoImpl;
-import com.h2sm.spring_boot_db.repository.interfaces.AchievementsRepo;
-import com.h2sm.spring_boot_db.repository.AchievementsRepoImpl;
-import com.h2sm.spring_boot_db.repository.interfaces.StudentsRepo;
-import com.h2sm.spring_boot_db.repository.interfaces.TablesRepo;
-import com.h2sm.spring_boot_db.repository.TablesRepoImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -44,19 +38,4 @@ public class SpringConfig {
     public NamedParameterJdbcOperations jdbcOperations() {
         return new NamedParameterJdbcTemplate(postgresDataSource());
     }
-
-//    @Bean
-//    public AchievementsRepo achievements() {
-//        return new AchievementsRepoImpl(jdbcOperations());
-//    }
-//
-//    @Bean
-//    public TablesRepo tables() {
-//        return new TablesRepoImpl(jdbcOperations());
-//    }
-//
-//    @Bean
-//    public StudentsRepo student() {
-//        return new StudentsRepoImpl(jdbcOperations());
-//    }
 }
