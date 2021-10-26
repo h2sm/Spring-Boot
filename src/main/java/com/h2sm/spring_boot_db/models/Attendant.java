@@ -12,6 +12,6 @@ public class Attendant {
 
     @Override
     public String toString(){
-        return "Attendant [id = " + ", name = " + name + ", phone number = " +phoneNumber + "]";
+        return "Attendant [id = " + id + ", name = " + name + ", phone number = " +phoneNumber + "]";
     }
 }

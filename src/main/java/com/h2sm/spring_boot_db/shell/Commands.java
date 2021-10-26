@@ -24,6 +24,11 @@ public class Commands {
         var col = service.getAllClients();
         print(col);
     }
+    @ShellMethod(value = "find-attendants", key = {"attendants", "attendant", "soprovozhdayshiy"})
+    public void findAttendants(){
+        var col = service.getAllAttendants();
+        print(col);
+    }
 
     private void print(Collection<?> o) {
         ui.show(o);
