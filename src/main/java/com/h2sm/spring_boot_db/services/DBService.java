@@ -22,5 +22,8 @@ public class DBService {
     public Collection<Attendant> getAllAttendants() {
         return attendants.getAllAttendants();
     }
+    public Collection<Attendant> getAttendantByName(String name){
+        return attendants.getAttendantByName(name);
+    }
 
 }

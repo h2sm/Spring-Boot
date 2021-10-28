@@ -6,4 +6,5 @@ import java.util.Collection;
 
 public interface AttendantsRepo {
     Collection<Attendant> getAllAttendants();
+    Collection<Attendant> getAttendantByName(String name);
 }
