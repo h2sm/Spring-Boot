@@ -19,11 +19,15 @@ public class DBService {
         return clients.returnAllClients();
     }
 
+    public Collection<Client> getClientsByName(String name) {
+        return clients.returnClientByNamePart(name);
+    }
+
     public Collection<Attendant> getAllAttendants() {
         return attendants.getAllAttendants();
     }
-    public Collection<Attendant> getAttendantByName(String name){
+
+    public Collection<Attendant> getAttendantByName(String name) {
         return attendants.getAttendantByName(name);
     }
-
 }

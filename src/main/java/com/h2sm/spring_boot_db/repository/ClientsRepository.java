@@ -29,4 +29,16 @@ public class ClientsRepository implements ClientsRepo {
                         rs.getString("tel_name"),
                         rs.getDate("date_of_birth")));
     }
+
+    @Override
+    public Collection<Client> returnClientByNamePart(String namePart) {
+        var sql = "select * from client where full_name like '%" + namePart + "%'";
+        return jdbc.query(sql,  Map.of("client_id", "full_name" + "passport" +  "tel_name" + "date_of_birth"),
+                (rs, i) -> new Client(
+                        rs.getInt("client_id"),
+                        rs.getString("full_name"),
+                        rs.getString("passport"),
+                        rs.getString("tel_name"),
+                        rs.getDate("date_of_birth")));
+    }
 }

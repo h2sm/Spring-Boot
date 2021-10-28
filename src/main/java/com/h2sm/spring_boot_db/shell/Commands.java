@@ -26,7 +26,13 @@ public class Commands {
         print(col);
     }
 
-    @ShellMethod(value = "find-all-attendants", key = {"find-all-attendants", "attendant", "soprovozhdayshiy"})
+    @ShellMethod(value = "find-client-name", key = {"find-client-name", "client-name"})
+    public void findClientsByName(@ShellOption(defaultValue = "") String name) {
+        var col = service.getClientsByName(name);
+        print(col);
+    }
+
+    @ShellMethod(value = "find-all-attendants", key = {"find-all-attendants", "attendants", "soprovozhdayshiy"})
     public void findAttendants() {
         var col = service.getAllAttendants();
         print(col);
@@ -34,7 +40,6 @@ public class Commands {
 
     @ShellMethod(value = "find-att-by-name", key = {"find-attendant-name", "attendant-name"})
     public void findAttendantByName(@ShellOption(defaultValue = "") String name) {
-        System.out.println(name);
         var col = service.getAttendantByName(name);
         print(col);
     }

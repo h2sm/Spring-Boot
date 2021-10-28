@@ -6,4 +6,5 @@ import java.util.Collection;
 
 public interface ClientsRepo {
     Collection<Client> returnAllClients();
+    Collection<Client> returnClientByNamePart(String namepart);
 }
