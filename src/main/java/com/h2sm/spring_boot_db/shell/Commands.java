@@ -32,6 +32,8 @@ public class Commands {
         print(col);
     }
 
+    /////////
+
     @ShellMethod(value = "find-all-attendants", key = {"find-all-attendants", "attendants", "soprovozhdayshiy"})
     public void findAttendants() {
         var col = service.getAllAttendants();
@@ -42,6 +44,12 @@ public class Commands {
     public void findAttendantByName(@ShellOption(defaultValue = "") String name) {
         var col = service.getAttendantByName(name);
         print(col);
+    }
+
+    @ShellMethod
+    public void addAttendant(@ShellOption(defaultValue = "") String attendantName,
+                             @ShellOption(defaultValue = "") String phoneNumber) {
+
     }
 
     private void print(Collection<?> o) {

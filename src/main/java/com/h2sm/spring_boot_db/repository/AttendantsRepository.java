@@ -38,4 +38,22 @@ public class AttendantsRepository implements AttendantsRepo {
                         rs.getString("tel_number")
                 ));
     }
+
+    @Override
+    public void addNewAttendant(Attendant a) {
+//        a.
+//        var sql = "insert into attendant values :"
+
+    }
+
+    @Override
+    public void modifyAttendant(Attendant a) {
+
+    }
+
+    @Override
+    public void deleteAttendant(Attendant a) {
+
+    }
+
 }

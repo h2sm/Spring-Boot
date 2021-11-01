@@ -1,10 +1,6 @@
 package com.h2sm.spring_boot_db;
-
-import com.h2sm.spring_boot_db.config.DockerAuth;
-import com.h2sm.spring_boot_db.config.SpringConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 @SpringBootApplication
 public class SpringBootDbApplication {

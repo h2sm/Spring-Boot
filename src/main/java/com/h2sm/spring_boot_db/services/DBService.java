@@ -30,4 +30,7 @@ public class DBService {
     public Collection<Attendant> getAttendantByName(String name) {
         return attendants.getAttendantByName(name);
     }
+    public void addAttendant(){
+        attendants.addNewAttendant();
+    }
 }
