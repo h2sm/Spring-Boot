@@ -8,7 +8,6 @@ public interface AttendantsRepo {
     Collection<Attendant> getAllAttendants();
     Collection<Attendant> getAttendantByName(String name);
     void addAttendant(Attendant a);
-//    void addNewAttendant(String name, String phoneNumber);
-//    <T> void modifyAttendant(int id, T param);
-//    void deleteAttendant(Attendant a);
+    void updateAttendant(Attendant a);
+    void deleteAttendant(Attendant a);
 }

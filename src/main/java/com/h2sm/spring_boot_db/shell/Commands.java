@@ -47,7 +47,7 @@ public class Commands {
         print(col);
     }
 
-    @ShellMethod
+    @ShellMethod(value = "add-attendant", key = {"add-attendant"})
     public void addAttendant(@ShellOption(defaultValue = "") String attendantName,
                              @ShellOption(defaultValue = "") String phoneNumber) {
         service.addAttendant(new Attendant(attendantName, phoneNumber));
