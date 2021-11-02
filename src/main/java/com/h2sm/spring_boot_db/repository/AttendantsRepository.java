@@ -3,11 +3,13 @@ package com.h2sm.spring_boot_db.repository;
 import com.h2sm.spring_boot_db.models.Attendant;
 import com.h2sm.spring_boot_db.repository.interfaces.AttendantsRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcOperations;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
 
 @Repository
@@ -39,21 +41,12 @@ public class AttendantsRepository implements AttendantsRepo {
                 ));
     }
 
-    @Override
-    public void addNewAttendant(Attendant a) {
-//        a.
-//        var sql = "insert into attendant values :"
-
-    }
-
-    @Override
-    public void modifyAttendant(Attendant a) {
-
-    }
-
-    @Override
-    public void deleteAttendant(Attendant a) {
-
+    public void addAttendant(Attendant a) {
+        var params = new MapSqlParameterSource();
+        params.addValue("attendant_name", a.getName());
+        params.addValue("tel_number", a.getPhoneNumber());
+        var sql = "insert into attendant (attendant_name, tel_number) values (:name, :phoneNumber)";
+        jdbc.update(sql, params);
     }
 
 }

@@ -10,8 +10,13 @@ public class Attendant {
     private String name;
     private String phoneNumber;
 
+    public Attendant(String name, String phoneNumber) {
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+    }
+
     @Override
-    public String toString(){
-        return "Attendant [id = " + id + ", name = " + name + ", phone number = " +phoneNumber + "]";
+    public String toString() {
+        return "Attendant [id = " + id + ", name = " + name + ", phone number = " + phoneNumber + "]";
     }
 }

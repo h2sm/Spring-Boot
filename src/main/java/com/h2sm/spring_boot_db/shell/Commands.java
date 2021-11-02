@@ -1,6 +1,7 @@
 package com.h2sm.spring_boot_db.shell;
 
 import com.h2sm.spring_boot_db.io.UI;
+import com.h2sm.spring_boot_db.models.Attendant;
 import com.h2sm.spring_boot_db.services.DBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
@@ -49,7 +50,7 @@ public class Commands {
     @ShellMethod
     public void addAttendant(@ShellOption(defaultValue = "") String attendantName,
                              @ShellOption(defaultValue = "") String phoneNumber) {
-
+        service.addAttendant(new Attendant(attendantName, phoneNumber));
     }
 
     private void print(Collection<?> o) {

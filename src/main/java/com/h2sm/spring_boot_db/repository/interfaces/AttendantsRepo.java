@@ -7,7 +7,8 @@ import java.util.Collection;
 public interface AttendantsRepo {
     Collection<Attendant> getAllAttendants();
     Collection<Attendant> getAttendantByName(String name);
-    void addNewAttendant(Attendant a);
-    void modifyAttendant(Attendant a);
-    void deleteAttendant(Attendant a);
+    void addAttendant(Attendant a);
+//    void addNewAttendant(String name, String phoneNumber);
+//    <T> void modifyAttendant(int id, T param);
+//    void deleteAttendant(Attendant a);
 }
