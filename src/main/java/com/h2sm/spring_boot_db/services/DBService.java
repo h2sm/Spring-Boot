@@ -36,6 +36,7 @@ public class DBService {
     }
 
     public void add(Client c) {
+
     }
 
     public void modify(Attendant a) {

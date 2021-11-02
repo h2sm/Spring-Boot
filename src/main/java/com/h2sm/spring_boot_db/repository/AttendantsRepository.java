@@ -51,7 +51,8 @@ public class AttendantsRepository implements AttendantsRepo {
 
     @Override
     public void updateAttendant(Attendant a) {
-
+//        var params = new MapSqlParameterSource();
+//        params
 
     }
 
