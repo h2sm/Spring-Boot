@@ -31,11 +31,26 @@ public class DBService {
         return attendants.getAttendantByName(name);
     }
 
-    public void addAttendant(Attendant a){
+    public void add(Attendant a) {
         attendants.addAttendant(a);
     }
 
-    public <T> void modifyAttendant(int id, T param){
+    public void add(Client c) {
+    }
+
+    public void modify(Attendant a) {
+
+    }
+
+    public void modify(Client c) {
+
+    }
+
+    public void delete(Attendant a) {
+
+    }
+
+    public void delete(Client c) {
 
     }
 }
