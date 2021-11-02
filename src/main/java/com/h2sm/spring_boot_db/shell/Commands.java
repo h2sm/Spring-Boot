@@ -2,14 +2,13 @@ package com.h2sm.spring_boot_db.shell;
 
 import com.h2sm.spring_boot_db.io.UI;
 import com.h2sm.spring_boot_db.models.Attendant;
-import com.h2sm.spring_boot_db.services.DBService;
+import com.h2sm.spring_boot_db.services.databaseServices.DBService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 
 import java.util.Collection;
-import java.util.stream.Collectors;
 
 @ShellComponent
 @RequiredArgsConstructor
@@ -65,7 +64,8 @@ public class Commands {
                                 @ShellOption("--settingValue")String value){
         var col = service.getAttendantByName(name);
         if (col.size() > 1){
-
+            print("There are multiple people with given name. Choose an id of a person");
+            print(col);
         }
         //service.modify();
     }
@@ -73,5 +73,8 @@ public class Commands {
 
     private void print(Collection<?> o) {
         ui.show(o);
+    }
+    private void print(String s){
+        ui.show(s);
     }
 }

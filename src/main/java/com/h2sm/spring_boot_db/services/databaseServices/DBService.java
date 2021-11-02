@@ -1,4 +1,4 @@
-package com.h2sm.spring_boot_db.services;
+package com.h2sm.spring_boot_db.services.databaseServices;
 
 import com.h2sm.spring_boot_db.models.Attendant;
 import com.h2sm.spring_boot_db.models.Client;
