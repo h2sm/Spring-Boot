@@ -75,7 +75,7 @@ public class AttendantsRepository implements AttendantsRepo {
         params.addValue("tel_number", a.getPhoneNumber());
         params.addValue("attendant_id", a.getId());
         var sql = "delete from attendant where attendant_id =:attendant_id";
-        jdbc.query(sql, MAPPER);
+        jdbc.update(sql,params);
     }
 
 }

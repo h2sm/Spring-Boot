@@ -17,7 +17,6 @@ import java.util.Collection;
 public class DBService {
     private final ClientsRepo clients;
     private final AttendantsRepo attendants;
-    private final UI ui;
 
     public Collection<Client> getAllClients() {
         return clients.returnAllClients();
