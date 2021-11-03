@@ -33,10 +33,10 @@ public class SpringConfig {
         return dataSource;
     }
 
-    @Bean
-    public UI userInterface() {
-        return new UserInterfaceImpl();
-    }
+//    @Bean
+//    public UI userInterface() {
+//        return new UserInterfaceImpl();
+//    }
 
     @Bean
     public NamedParameterJdbcOperations jdbcOperations() {

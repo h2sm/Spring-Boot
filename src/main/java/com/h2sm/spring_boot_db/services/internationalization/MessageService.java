@@ -12,12 +12,14 @@ public class MessageService {
     private final LocaleService localeService;
 
     public String localize(String code) {
-
         return messageSource.getMessage(code, new Object[0], localeService.getCurrent());
     }
 
     public String localize(String code, Object... params) {
         return messageSource.getMessage(code, params, localeService.getCurrent());
+    }
+    public void setLocale(String loc){
+        localeService.setLocale(loc);
     }
 
 }

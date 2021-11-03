@@ -8,18 +8,18 @@ import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
 import org.springframework.shell.standard.ShellOption;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Optional;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 @ShellComponent
 @RequiredArgsConstructor
 public class Commands {
     private final DBService service;
     private final UI ui;
-    //exiting a CLI
-    @ShellMethod(value = "Shutting down a CLI", key = {"turnoff"})
-    public void loggingOff() {
-        System.exit(0);
-    }
 
     //find all clients from database
     @ShellMethod(value = "Find all clients in database", key = {"find-all-clients", "clients"})
@@ -53,7 +53,7 @@ public class Commands {
     @ShellMethod(value = "Add a new attendant", key = {"add-attendant"})
     public void addAttendant(@ShellOption(defaultValue = "") String attendantName,
                              @ShellOption(defaultValue = "") String phoneNumber) {
-        service.add(new Attendant(attendantName, phoneNumber));
+        service.addAttendant(attendantName, phoneNumber);
     }
 
     //update an information about an attendant
@@ -61,20 +61,22 @@ public class Commands {
             "<attendant_name> + <desired_column_name> + <value>", key = {"upd-attendant"})
     public void updateAttendant(@ShellOption("--name") String name,
                                 @ShellOption(value = "--columnName") String columnName,
-                                @ShellOption("--settingValue")String value){
-        var col = service.getAttendantByName(name);
-        if (col.size() > 1){
-            print("There are multiple people with given name. Choose an id of a person");
-            print(col);
-        }
-        //service.modify();
+                                @ShellOption("--settingValue") String value) {
+        service.modify(name, columnName, value);
+
+    }
+
+    @ShellMethod(value = "Set locale", key = {"set-locale"})
+    public void setLocale(@ShellOption(defaultValue = "en") String loc) {
+        ui.setLocale(loc);
     }
 
 
     private void print(Collection<?> o) {
         ui.show(o);
     }
-    private void print(String s){
+
+    private void print(String s) {
         ui.show(s);
     }
 }

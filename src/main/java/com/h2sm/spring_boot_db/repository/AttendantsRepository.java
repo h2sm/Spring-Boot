@@ -41,18 +41,16 @@ public class AttendantsRepository implements AttendantsRepo {
                 ));
     }
 
-    public void addAttendant(Attendant a) {
+    public void addAttendant(String name, String phoneNumber) {
         var params = new MapSqlParameterSource();
-        params.addValue("attendant_name", a.getName());
-        params.addValue("tel_number", a.getPhoneNumber());
+        params.addValue("attendant_name", name);
+        params.addValue("tel_number", phoneNumber);
         var sql = "insert into attendant (attendant_name, tel_number) values (:attendant_name, :tel_number)";
         jdbc.update(sql, params);
     }
 
     @Override
     public void updateAttendant(Attendant a) {
-//        var params = new MapSqlParameterSource();
-//        params
 
     }
 
