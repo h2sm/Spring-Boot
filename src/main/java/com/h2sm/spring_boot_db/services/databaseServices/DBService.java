@@ -6,9 +6,11 @@ import com.h2sm.spring_boot_db.models.Client;
 import com.h2sm.spring_boot_db.repository.interfaces.AttendantsRepo;
 import com.h2sm.spring_boot_db.repository.interfaces.ClientsRepo;
 import lombok.RequiredArgsConstructor;
+import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 
 @RequiredArgsConstructor
@@ -39,11 +41,11 @@ public class DBService {
         attendants.addAttendant(name,phoneNumber);
     }
 
-    public void add(Client c) {
+    public void addClient(Client c) {
 
     }
 
-    public void modify(String name, String columnName, String value) {
+    public void modifyAttendant(String name, String columnName, String value) {
         var col = attendants.getAttendantByName(name);
         var numberOfPersons = col.size();
         if (numberOfPersons > 1) {
@@ -51,24 +53,24 @@ public class DBService {
             System.out.println(col);
             var searchingAttendantID = ui.getKeyboard();
             var attendant = col.stream().filter(a -> a.getId() == Integer.parseInt(searchingAttendantID)).findFirst().get();
-            System.out.println("updating an attendant " + attendant);
+            attendants.updateAttendant();
         } else if (numberOfPersons == 1) {
             System.out.println("модифицирую " + new ArrayList<>(col).get(0));
         } else {
-            System.out.println("бля");
+            ui.showLocalized("shell.errorMessage");
         }
         //
     }
 
-    public void modify(Client c) {
+    public void modifyClient(Object ...args) {
 
     }
 
-    public void delete(Attendant a) {
+    public void deleteAttendant(Object ...args) {
 
     }
 
-    public void delete(Client c) {
+    public void deleteClient(Object ...args) {
 
     }
 }

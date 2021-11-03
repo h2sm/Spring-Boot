@@ -62,7 +62,7 @@ public class Commands {
     public void updateAttendant(@ShellOption("--name") String name,
                                 @ShellOption(value = "--columnName") String columnName,
                                 @ShellOption("--settingValue") String value) {
-        service.modify(name, columnName, value);
+        service.modifyAttendant(name, columnName, value);
 
     }
 
