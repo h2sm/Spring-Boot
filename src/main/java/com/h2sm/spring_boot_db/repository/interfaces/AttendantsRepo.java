@@ -7,6 +7,7 @@ import java.util.Collection;
 public interface AttendantsRepo {
     Collection<Attendant> getAllAttendants();
     Collection<Attendant> getAttendantByName(String name);
+    Attendant returnAttendantByID(int id);
     void addAttendant(Attendant a);
     void updateAttendant(Attendant a);
     void deleteAttendant(Attendant a);

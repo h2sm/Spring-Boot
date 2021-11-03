@@ -64,8 +64,9 @@ public class Commands {
                                 @ShellOption(value = "--newPhoneNumber") String phoneNumber) {
         service.modifyAttendant(name, newName, phoneNumber);
     }
-    @ShellMethod(value = "fak yu", key = {"del-att"})
+    @ShellMethod(value = "Delete an attendant", key = {"del-att"})
     public void deleteAttendant(@ShellOption(value = "--name") String name){
+        service.deleteAttendant(name);
 
     }
 
