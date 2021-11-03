@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.Map;
 
 @Repository
 @RequiredArgsConstructor
@@ -37,11 +38,16 @@ public class AttendantsRepository implements AttendantsRepo {
 
     @Override
     public Attendant returnAttendantByID(int id) {
-//        var params = new MapSqlParameterSource();
-//        params.addValue("attendant_id", id);
-//        var sql = "select * from attendant where attendant_id =:attendant_id";
-//        return jdbc.query(sql, params);
-        return null;
+        var params = new MapSqlParameterSource();
+        params.addValue("attendant_id", id);
+        var sql = "select * from attendant where attendant_id =:attendant_id";
+        return jdbc.query(sql,
+                Map.of("attendant_id", id),
+                (v, rs) -> new Attendant(v.getInt("attendant_id"),
+                        v.getString("attendant_name"),
+                        v.getString("tel_number")
+                        )).get(0);
+
     }
 
     public void addAttendant(Attendant a) {
@@ -69,7 +75,7 @@ public class AttendantsRepository implements AttendantsRepo {
         params.addValue("tel_number", a.getPhoneNumber());
         params.addValue("attendant_id", a.getId());
         var sql = "delete from attendant where attendant_id =:attendant_id";
-        jdbc.query(sql,MAPPER);
+        jdbc.query(sql, MAPPER);
     }
 
 }
