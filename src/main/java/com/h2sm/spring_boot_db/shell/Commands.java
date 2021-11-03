@@ -59,14 +59,14 @@ public class Commands {
     //update an information about an attendant
     @ShellMethod(value = "Update an information about an attendant: " +
             "<attendant_name> + <desired_column_name> + <value>", key = {"upd-att"})
-    public void updateAttendant(@ShellOption(value = "--name") String name,
+    public void updateAttendant(@ShellOption(value = "--id") int id,
                                 @ShellOption(value = "--newName", defaultValue = "") String newName,
                                 @ShellOption(value = "--newPhoneNumber") String phoneNumber) {
-        service.modifyAttendant(name, newName, phoneNumber);
+        service.modifyAttendant(id, newName, phoneNumber);
     }
     @ShellMethod(value = "Delete an attendant", key = {"del-att"})
-    public void deleteAttendant(@ShellOption(value = "--name") String name){
-        service.deleteAttendant(name);
+    public void deleteAttendant(@ShellOption(value = "--name") int id, boolean sure){
+        service.deleteAttendant(id);
 
     }
 

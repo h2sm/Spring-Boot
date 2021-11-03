@@ -64,7 +64,12 @@ public class AttendantsRepository implements AttendantsRepo {
 
     @Override
     public void deleteAttendant(Attendant a) {
-
+        var params = new MapSqlParameterSource();
+        params.addValue("attendant_name", a.getName());
+        params.addValue("tel_number", a.getPhoneNumber());
+        params.addValue("attendant_id", a.getId());
+        var sql = "delete from attendant where attendant_id =:attendant_id";
+        jdbc.query(sql,MAPPER);
     }
 
 }

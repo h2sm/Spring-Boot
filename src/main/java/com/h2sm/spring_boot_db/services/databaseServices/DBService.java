@@ -40,36 +40,23 @@ public class DBService {
         attendants.addAttendant(new Attendant(name, phoneNumber));
     }
 
+    public void modifyAttendant(int id, String newName, String phoneNumber) {
+        var att = attendants.returnAttendantByID(id);
+        att.setName(newName);
+        att.setPhoneNumber(phoneNumber);
+        attendants.updateAttendant(att);
+    }
+
+    public void deleteAttendant(int id) {
+        var att = attendants.returnAttendantByID(id);
+        attendants.deleteAttendant(att);
+    }
+
     public void addClient(Client c) {
 
     }
 
-    public void modifyAttendant(String name, String newName, String phoneNumber) {
-        var col = attendants.getAttendantByName(name);
-        var numberOfPersons = col.size();
-        if (numberOfPersons > 1) {
-            System.out.println(ui.returnLocalized("shell.sameNamesHelp"));
-            System.out.println(col);
-            var searchingAttendantID = ui.getKeyboard();
-            var attendant = col.stream().filter(a -> a.getId() == Integer.parseInt(searchingAttendantID)).findFirst().get();
-            attendant.setName(name);
-            attendant.setPhoneNumber(phoneNumber);
-            attendants.updateAttendant(attendant);
-        } else if (numberOfPersons == 1) {
-            var attendant = new ArrayList<>(col).get(0);
-            attendant.setPhoneNumber(phoneNumber);
-            attendant.setName(name);
-            attendants.updateAttendant(attendant);
-        } else {
-            ui.showLocalized("shell.errorMessage");
-        }
-    }
-
     public void modifyClient(Object... args) {
-
-    }
-
-    public void deleteAttendant(Object... args) {
 
     }
 
