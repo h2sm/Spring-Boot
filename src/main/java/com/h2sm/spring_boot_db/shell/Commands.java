@@ -50,7 +50,7 @@ public class Commands {
     }
 
     //add new attendant
-    @ShellMethod(value = "Add a new attendant", key = {"add-attendant"})
+    @ShellMethod(value = "Add a new attendant", key = {"add-att"})
     public void addAttendant(@ShellOption(defaultValue = "") String attendantName,
                              @ShellOption(defaultValue = "") String phoneNumber) {
         service.addAttendant(attendantName, phoneNumber);
@@ -58,11 +58,14 @@ public class Commands {
 
     //update an information about an attendant
     @ShellMethod(value = "Update an information about an attendant: " +
-            "<attendant_name> + <desired_column_name> + <value>", key = {"upd-attendant"})
-    public void updateAttendant(@ShellOption("--name") String name,
-                                @ShellOption(value = "--columnName") String columnName,
-                                @ShellOption("--settingValue") String value) {
-        service.modifyAttendant(name, columnName, value);
+            "<attendant_name> + <desired_column_name> + <value>", key = {"upd-att"})
+    public void updateAttendant(@ShellOption(value = "--name") String name,
+                                @ShellOption(value = "--newName", defaultValue = "") String newName,
+                                @ShellOption(value = "--newPhoneNumber") String phoneNumber) {
+        service.modifyAttendant(name, newName, phoneNumber);
+    }
+    @ShellMethod(value = "fak yu", key = {"del-att"})
+    public void deleteAttendant(@ShellOption(value = "--name") String name){
 
     }
 

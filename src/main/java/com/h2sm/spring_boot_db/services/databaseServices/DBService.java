@@ -6,7 +6,6 @@ import com.h2sm.spring_boot_db.models.Client;
 import com.h2sm.spring_boot_db.repository.interfaces.AttendantsRepo;
 import com.h2sm.spring_boot_db.repository.interfaces.ClientsRepo;
 import lombok.RequiredArgsConstructor;
-import lombok.var;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -38,14 +37,14 @@ public class DBService {
 
     public void addAttendant(String name, String phoneNumber) {
 
-        attendants.addAttendant(name,phoneNumber);
+        attendants.addAttendant(new Attendant(name, phoneNumber));
     }
 
     public void addClient(Client c) {
 
     }
 
-    public void modifyAttendant(String name, String columnName, String value) {
+    public void modifyAttendant(String name, String newName, String phoneNumber) {
         var col = attendants.getAttendantByName(name);
         var numberOfPersons = col.size();
         if (numberOfPersons > 1) {
@@ -53,24 +52,28 @@ public class DBService {
             System.out.println(col);
             var searchingAttendantID = ui.getKeyboard();
             var attendant = col.stream().filter(a -> a.getId() == Integer.parseInt(searchingAttendantID)).findFirst().get();
-            attendants.updateAttendant();
+            attendant.setName(name);
+            attendant.setPhoneNumber(phoneNumber);
+            attendants.updateAttendant(attendant);
         } else if (numberOfPersons == 1) {
-            System.out.println("модифицирую " + new ArrayList<>(col).get(0));
+            var attendant = new ArrayList<>(col).get(0);
+            attendant.setPhoneNumber(phoneNumber);
+            attendant.setName(name);
+            attendants.updateAttendant(attendant);
         } else {
             ui.showLocalized("shell.errorMessage");
         }
-        //
     }
 
-    public void modifyClient(Object ...args) {
-
-    }
-
-    public void deleteAttendant(Object ...args) {
+    public void modifyClient(Object... args) {
 
     }
 
-    public void deleteClient(Object ...args) {
+    public void deleteAttendant(Object... args) {
+
+    }
+
+    public void deleteClient(Object... args) {
 
     }
 }
